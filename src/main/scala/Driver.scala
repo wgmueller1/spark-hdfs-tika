@@ -51,7 +51,7 @@ object Driver {
     val spark_conf = new SparkConf().setAppName("Spark Tika HDFS")
     val sc = new SparkContext(spark_conf)
     val lines = fromFile(input_file).getLines.toList
-    val distData = sc.parallelize(lines)
+    val distData = sc.parallelize(lines,args(2).toInt)
     distData.map( line => "%s".format(JSONObject(extract(line.trim)))).saveAsTextFile(hdfs_dir)
   }
 
