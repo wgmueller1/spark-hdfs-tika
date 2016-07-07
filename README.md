@@ -11,7 +11,8 @@ $ spark-submit --master {URI} \
   --jars {path/to/tika-app-1.8.jar} \ 
   target/scala-2.x/spark-hdfs-tika*.jar \ 
   {HDFS_OUTPUT_DIRECTORY} \ 
-  {INPUT_FILE}
+  {INPUT_FILE} \
+  {num of partitions for INPUT_FILE}
 ```
 
 __getting input list of files from hdfs__
